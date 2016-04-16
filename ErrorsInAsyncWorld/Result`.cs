@@ -7,11 +7,8 @@ namespace ErrorsInAsyncWorld
     {
         readonly T value;
 
-        public T Value {
-            get {
-                return value;
-            }
-        }
+        public T Value => value;
+
         public Result()
         {
             success = true;

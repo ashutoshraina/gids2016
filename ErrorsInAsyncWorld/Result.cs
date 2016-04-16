@@ -10,29 +10,13 @@ namespace ErrorsInAsyncWorld
         readonly Exception exception;
         readonly string message;
 
-        public bool Success {
-            get {
-                return success;
-            }
-        }
+        public bool Success => success;
 
-        public Exception Exception {
-            get {
-                return exception;
-            }
-        }
+        public Exception Exception => exception;
 
-        public string Message {
-            get {
-                return message;
-            }
-        }
+        public string Message => message;
 
-        public bool Fail {
-            get {
-                return !success;
-            }
-        }
+        public bool Fail => !success;
 
         public static Result<T> FromResult<T>(T result) { return new Result<T>(result, true); }
         public static Result<T> FromException<T>(Exception exception) { return new Result<T>(exception); }

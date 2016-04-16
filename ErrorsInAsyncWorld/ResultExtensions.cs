@@ -12,7 +12,7 @@ namespace ErrorsInAsyncWorld
                 return result;
 
             }
-            return func();
+            return func?.Invoke();
         }
 
         public static Result<T> OnSuccess<T>(this Result<T> result, Action action)
@@ -20,7 +20,7 @@ namespace ErrorsInAsyncWorld
             if (result.Fail)
                 return result;
 
-            action();
+            action?.Invoke();
 
             return Result.FromSuccess<T>(true);
         }
@@ -30,7 +30,7 @@ namespace ErrorsInAsyncWorld
             if (result.Fail)
                 return result;
 
-            action(result.Value);
+            action?.Invoke(result.Value);
 
             return Result.FromSuccess<T>(true);
         }
@@ -42,7 +42,7 @@ namespace ErrorsInAsyncWorld
                 return result;
 
             }
-            return func();
+            return func?.Invoke();
         }
 
         public static Result<T> OnFailure<T>(this Result<T> result, Action action)
@@ -50,7 +50,7 @@ namespace ErrorsInAsyncWorld
             if (!result.Fail)
                 return result;
 
-            action();
+            action?.Invoke();
 
             return Result.FromSuccess<T>(false);
         }
@@ -60,7 +60,7 @@ namespace ErrorsInAsyncWorld
             if (!result.Fail)
                 return result;
 
-            action(result.Value);
+            action?.Invoke(result.Value);
 
             return Result.FromSuccess<T>(false);
         }

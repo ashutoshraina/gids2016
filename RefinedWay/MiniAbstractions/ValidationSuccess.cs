@@ -9,15 +9,9 @@ namespace RefinedWay
             Result = value;
         }
 
-        public IValidation<T, V> Select<V>(Func<U, V> f)
-        {
-            return new ValidationSuccess<T, V>(f(Result));
-        }
+        public IValidation<T, V> Select<V>(Func<U, V> f) => new ValidationSuccess<T, V>(f(Result));
 
-        public IValidation<T, V> SelectMany<V>(Func<U, IValidation<T, V>> f)
-        {
-            return f(Result);
-        }
+        public IValidation<T, V> SelectMany<V>(Func<U, IValidation<T, V>> f) => f(Result);
 
         public U Result { get; private set; }
     }

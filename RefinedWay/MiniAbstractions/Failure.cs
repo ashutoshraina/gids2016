@@ -11,24 +11,14 @@ namespace RefinedWay
             this.left = left;
         }
 
-        public override bool IsSuccess()
-        {
-            return false;
-        }
+        public override bool IsSuccess() => false;
 
-        public static Validation<L, B> FromFailure<B>(L left, B value)
-        {
-            return new Failure<L, B>(left, value);
-        }
-
-        public override Validation<L, B> Select<B>(Func<A, B> mapper)
-        {
-            return FromFailure(left, mapper(Value));
-        }
+        public static Validation<L, B> FromFailure<B>(L left, B value) => new Failure<L, B>(left, value);
+        public override Validation<L, B> Select<B>(Func<A, B> mapper) => FromFailure(left, mapper(Value));
 
         public override Validation<L, B> SelectMany<B>(Func<A, Validation<L, B>> mapper)
         {
-            Validation<L, B> result = mapper(Value);
+            var result = mapper(Value);
             return result.IsSuccess() ? FromFailure(left, result.Value) : FromFailure((result as Failure<L, B>).left, result.Value);
         }
 

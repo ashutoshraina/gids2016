@@ -7,23 +7,12 @@ namespace RefinedWay
         {
         }
 
-        public static Success<L, A> FromSuccess(A value)
-        {
-            return new Success<L, A>(value);
-        }
-        public override bool IsSuccess()
-        {
-            return true;
-        }
+        public static Success<L, A> FromSuccess(A value) => new Success<L, A>(value);
 
-        public override Validation<L, B> Select<B>(Func<A, B> mapper)
-        {
-            return new Success<L, B>(mapper(Value));
-        }
+        public override bool IsSuccess() => true;
 
-        public override Validation<L, B> SelectMany<B>(Func<A, Validation<L, B>> mapper)
-        {
-            return mapper(Value);
-        }
+        public override Validation<L, B> Select<B>(Func<A, B> mapper) => new Success<L, B>(mapper(Value));
+
+        public override Validation<L, B> SelectMany<B>(Func<A, Validation<L, B>> mapper) => mapper(Value);
     }
   }

@@ -23,9 +23,6 @@ namespace RefinedWay
 
     public static class MonoidExtensions
     {
-        public static IMonoid<T> Monoid<T>(this T unit, Func<T, T, T> operation)
-        {
-            return new Monoid<T>(unit, operation);
-        }
+        public static IMonoid<T> Monoid<T>(this T unit, Func<T, T, T> operation) => new Monoid<T>(unit, operation);
     }
 }

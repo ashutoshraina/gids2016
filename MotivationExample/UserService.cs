@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 namespace MotivationExample
 {
-
 	public class UserService
     {
 		readonly List<User> users = new List<User> ();
@@ -20,6 +20,5 @@ namespace MotivationExample
 				return null;
             }
         }
-    }
-    
+    }   
 }

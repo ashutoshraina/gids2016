@@ -5,7 +5,7 @@ namespace ErrorsInAsyncWorld
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Task.Run(() => AsyncMain()).Wait();
 
@@ -18,7 +18,7 @@ namespace ErrorsInAsyncWorld
             var result = await userService.GetUserByEmail("foo@bar.com");
 
             result.OnSuccess(user => Console.WriteLine(user.Email))
-                  .OnFailure(() => Console.WriteLine("We have a failure"));
+                  .OnFailure(() => Console.WriteLine(@"We have a failure"));
 
         }
     } 
