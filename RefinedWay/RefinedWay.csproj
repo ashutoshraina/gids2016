@@ -55,19 +55,12 @@
     <Compile Include="MiniAbstractions\Validation.cs" />
     <Compile Include="MiniAbstractions\ValidationError.cs" />
     <Compile Include="MiniAbstractions\ValidationSuccess.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\CustomerRepository.cs" />
-    <Compile Include="Customer\CustomerService.cs" />
     <Compile Include="MiniAbstractions\Success.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="MiniAbstractions\" />
-    <Folder Include="Customer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
